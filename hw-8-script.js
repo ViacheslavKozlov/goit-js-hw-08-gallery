@@ -46,19 +46,26 @@ function onGallaryItemClick(evt) {
 };
 
 // closing modal window on close btn click / clearing image src atribute
+function clsModalWindow() {
+    refs.modalWindow.classList.remove('is-open');
+    refs.imgGallery.src = '';
+}
+
 refs.btnCls.addEventListener('click', btnModalClose);
 function btnModalClose(evt) {
     evt.preventDefault();
-    refs.modalWindow.classList.remove('is-open');
-    refs.imgGallery.src = '';
+    // refs.modalWindow.classList.remove('is-open');
+    // refs.imgGallery.src = '';
+    clsModalWindow(evt);
 };
 
 // closing modal window on overlay click
 refs.overlay.addEventListener('click', onOverlayClickClose);
 function onOverlayClickClose(evt) {
     if (evt.currentTarget === evt.target) {
-        refs.modalWindow.classList.remove('is-open');
-        refs.imgGallery.src = '';
+        // refs.modalWindow.classList.remove('is-open');
+        // refs.imgGallery.src = '';
+        clsModalWindow(evt);
     };
     return;
 }
@@ -67,8 +74,9 @@ function onOverlayClickClose(evt) {
 document.addEventListener('keyup', onEscModalClose);
 function onEscModalClose(evt) {
     if (refs.modalWindow.classList.contains('is-open') && evt.keyCode === 27) {
-        refs.modalWindow.classList.remove('is-open');
-        refs.imgGallery.src = '';
+        // refs.modalWindow.classList.remove('is-open');
+        // refs.imgGallery.src = '';
+        clsModalWindow(evt);
     };
     return;
 };
